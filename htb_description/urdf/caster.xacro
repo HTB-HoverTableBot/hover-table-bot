@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="caster_wheel" params="name origin_xyz wheel">
+
+    <!-- Caster -->
+    <joint name="base_caster_${wheel}_swivel_joint" type="continuous">
+      <origin rpy=" 0 0 0" xyz="${origin_xyz}"/>
+      <anchor xyz="0 0 0"/>
+      <limit effort="100" velocity="100" k_velocity="0" />
+      <joint_properties damping="0.0" friction="0.0" />
+      <parent link="link_chassis"/>
+        <axis rpy="0 0 0" xyz="0 1 0"/>
+      <child link="caster_${wheel}_swivel"/>
+    </joint>
+
+    <link name="caster_${wheel}_swivel">
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.01" ixy="0" ixz="0"
+          iyy="0.01" iyz="0" izz="0.01"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry name="htb_geom">
+          <mesh filename="package://htb_description/meshes/caster_swivel.stl"/>
+        </geometry>
+        <material name="caster_${wheel}_swivel">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <gazebo reference="caster_swivel">
+      <material value="Gazebo/Grey"/>
+    </gazebo>
+
+    <!-- Center Wheel + Hubcap -->
+    <link name="caster_${wheel}_hubcap">
+      <inertial>
+        <mass value="0.01"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
+          iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry name="htb_geom">
+          <mesh filename="package://htb_description/meshes/caster_hubcap.stl"/>
+        </geometry>
+        <material name="caster_${wheel}_swivel">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.05 0.05 0.05"/>
+        </geometry>
+      </collision>
+    </link>
+    <gazebo reference="caster_hubcap">
+      <material value="Gazebo/Grey"/>
+    </gazebo>
+
+    <joint name="caster_${wheel}_swivel_hubcap_joint" type="continuous">
+      <origin xyz="-0.026 0 -0.016" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <anchor xyz="0 0 0"/>
+      <limit effort="100" velocity="100" k_velocity="0" />
+      <joint_properties damping="0.0" friction="0.0" />
+      <parent link="caster_${wheel}_swivel"/>
+      <child link="caster_${wheel}_wheel"/>
+    </joint>
+
+    <link name="caster_${wheel}_wheel">
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
+          iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry name="htb_geom">
+          <mesh filename="package://htb_description/meshes/caster_wheel.stl"/>
+        </geometry>
+        <material name="WheelBlack">
+          <color rgba="0.117 0.117 0.117 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
+        <geometry>
+          <mesh filename="package://htb_description/meshes/caster_wheel.stl"/>
+          <cylinder radius="0.0375" length="0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="caster_${wheel}_wheel_joint" type="fixed">
+      <origin xyz="-0.0035 0 -0.001" rpy="0 0 0"/>
+      <parent link="caster_${wheel}_wheel"/>
+      <child link="caster_${wheel}_hubcap"/>
+    </joint>
+
+  </xacro:macro>
+
+
+</robot>
