@@ -10,6 +10,18 @@
   <gazebo reference="link_right_wheel">
     <material>Gazebo/Blue</material>
   </gazebo>
+  <gazebo reference="caster_l_hubcap">
+    <material value="Gazebo/Grey"/>
+  </gazebo>
+  <gazebo reference="caster_r_hubcap">
+    <material value="Gazebo/Grey"/>
+  </gazebo>
+  <gazebo reference="caster_l_swivel">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="caster_r_swivel">
+    <material>Gazebo/Blue</material>
+  </gazebo>
 
   <!-- camera_link -->
   <gazebo reference="camera_link">
