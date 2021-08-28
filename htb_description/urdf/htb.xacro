@@ -76,7 +76,7 @@
   <!-- Camera link-->
   <link name="camera_link">
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0.03 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
       <geometry>
         <mesh filename="package://htb_description/meshes/realsense.dae"/>
       </geometry>
