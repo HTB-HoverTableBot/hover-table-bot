@@ -118,7 +118,7 @@
   <xacro:link_wheel name="link_left_wheel" />
   <xacro:joint_wheel name="joint_left_wheel" child="link_left_wheel" origin_xyz="-0.125 0.2225 -0.04" />
 
-  <xacro:caster_wheel name="left_caster" origin_xyz="0.185 0.11 -0.08" wheel="l"/>
-  <xacro:caster_wheel name="right_caster" origin_xyz="0.185 -0.11 -0.08" wheel="r"/>
+  <xacro:caster_wheel name="left_caster" origin_xyz="0.185 0.11 -0.06" wheel="l"/>
+  <xacro:caster_wheel name="right_caster" origin_xyz="0.185 -0.11 -0.06" wheel="r"/>
 
 </robot>

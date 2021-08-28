@@ -10,7 +10,7 @@
       <limit effort="100" velocity="100" k_velocity="0" />
       <joint_properties damping="0.0" friction="0.0" />
       <parent link="link_chassis"/>
-        <axis rpy="0 0 0" xyz="0 1 0"/>
+        <axis rpy="0 0 0" xyz="0 0 1"/>
       <child link="caster_${wheel}_swivel"/>
     </joint>
 
@@ -53,12 +53,6 @@
           <color rgba="0.5 0.5 0.5 1"/>
         </material>
       </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0.05 0.05 0.05"/>
-        </geometry>
-      </collision>
     </link>
     <gazebo reference="caster_hubcap">
       <material value="Gazebo/Grey"/>
@@ -91,11 +85,22 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
+        <!-- <origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/> -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://htb_description/meshes/caster_wheel.stl"/>
           <cylinder radius="0.0375" length="0.01"/>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.01</mu>
+              <mu2>0.1</mu2>
+              <slip1>1.0</slip1>
+              <slip2>1.0</slip2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
     </link>
 
