@@ -36,10 +36,10 @@
       <legacyMode>true</legacyMode>
       <updateRate>20</updateRate>
       <robotNamespace>/</robotNamespace>
-      <leftJoint>joint_left_wheel</leftJoint>
-      <rightJoint>joint_right_wheel</rightJoint>
-      <wheelSeparation>0.445</wheelSeparation>
-      <wheelDiameter>0.16</wheelDiameter>
+      <leftJoint>left_wheel</leftJoint>
+      <rightJoint>right_wheel</rightJoint>
+      <wheelSeparation>0.25</wheelSeparation>
+      <wheelDiameter>0.08</wheelDiameter>
       <torque>0.1</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
