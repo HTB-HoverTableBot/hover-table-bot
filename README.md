@@ -4,6 +4,8 @@
 
 It's born from [roboka robot](https://github.com/alex-makarov/robaka-ros) with some [changes](https://github.com/MartinNievas/hoverboard-driver/tree/devel).
 
+
+Check out the [Wiki](https://github.com/HTB-HoverTableBot/hover-table-bot/wiki) for more information.
 [Blog entry](https://martinnievas.com/myblog/2021-04-29-hoverboard-robot/) with some construction details.
 
 
