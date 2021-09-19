@@ -23,8 +23,8 @@
     <material>Gazebo/Blue</material>
   </gazebo>
 
-  <!-- camera_link -->
-  <gazebo reference="camera_link">
+  <!-- camera_realsense -->
+  <gazebo reference="camera_realsense">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
     <material>Gazebo/Red</material>
@@ -57,7 +57,7 @@
   </gazebo>
 
   <!-- camera plugin-->
-  <gazebo reference="camera_link">
+  <gazebo reference="camera_realsense">
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
       <camera name="head">
@@ -86,7 +86,7 @@
         <cameraName>htb/camera1</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera_link_optical</frameName>
+        <frameName>realsense_link_optical</frameName>
         <hackBaseline>0.07</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>

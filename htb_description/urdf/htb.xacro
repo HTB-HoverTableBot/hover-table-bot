@@ -69,12 +69,12 @@
     <axis xyz="0 1 0" />
     <origin xyz="-0.21 0 0.8" rpy="0 0 0"/>
     <parent link="link_chassis"/>
-    <child link="camera_link"/>
+    <child link="realsense_camera"/>
   </joint>
 
 
   <!-- Camera link-->
-  <link name="camera_link">
+  <link name="realsense_camera">
     <collision>
       <origin xyz="0.03 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
       <geometry>
@@ -103,11 +103,20 @@
     <!-- these values have to be these values otherwise the gazebo camera image
         won't be aligned properly with the frame it is supposedly originating from -->
     <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
-    <parent link="camera_link"/>
-    <child link="camera_link_optical"/>
+    <parent link="realsense_camera"/>
+    <child link="realsense_link_optical"/>
   </joint>
 
-  <link name="camera_link_optical">
+  <link name="realsense_link_optical">
+  </link>
+
+  <joint name="realsense_mountpoint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="realsense_link_optical"/>
+    <child link="realsense_mount_point"/>
+  </joint>
+
+  <link name="realsense_mount_point">
   </link>
 
   <!-- -->
