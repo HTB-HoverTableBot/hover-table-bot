@@ -112,7 +112,7 @@
 
   <joint name="realsense_mountpoint_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="realsense_link_optical"/>
+    <parent link="realsense_camera"/>
     <child link="realsense_mount_point"/>
   </joint>
 
