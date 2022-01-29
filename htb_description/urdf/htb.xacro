@@ -8,7 +8,7 @@
 
   <xacro:property name="camera_link_size" value="0.05" /> <!-- Size of square 'camera' box -->
 
-  <link name="link_chassis">
+  <link name="base_link">
     <!-- pose and inertial -->
     <pose>0 0 0.11 0 0 0</pose>
     <inertial>
@@ -36,7 +36,7 @@
   <joint name="v_support_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="-0.21 0 0.01" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
+    <parent link="base_link"/>
     <child link="v_support_link"/>
   </joint>
 
@@ -68,7 +68,7 @@
   <joint name="rplidar_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.215 0 0.01" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
+    <parent link="base_link"/>
     <child link="rplidar_link"/>
   </joint>
 
@@ -101,7 +101,7 @@
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="-0.215 0 0.8" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
+    <parent link="base_link"/>
     <child link="realsense_camera"/>
   </joint>
 

@@ -9,7 +9,7 @@
       <anchor xyz="0 0 0"/>
       <limit effort="100" velocity="100" k_velocity="0" />
       <joint_properties damping="0.0" friction="0.0" />
-      <parent link="link_chassis"/>
+      <parent link="base_link"/>
         <axis rpy="0 0 0" xyz="0 0 1"/>
       <child link="caster_${wheel}_swivel"/>
     </joint>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <gazebo reference="link_chassis">
+  <gazebo reference="base_link">
     <material>Gazebo/Orange</material>
   </gazebo>
   <gazebo reference="link_left_wheel">
@@ -49,7 +49,7 @@
       <rosDebugLevel>na</rosDebugLevel>
       <wheelAcceleration>0</wheelAcceleration>
       <wheelTorque>5</wheelTorque>
-      <robotBaseFrame>link_chassis</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
       <publishWheelTF>false</publishWheelTF>
       <publishOdomTF>true</publishOdomTF>
       <publishWheelJointState>false</publishWheelJointState>
@@ -97,7 +97,7 @@
     </sensor>
   </gazebo>
 
-  <gazebo reference="link_chassis">
+  <gazebo reference="base_link">
     <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
       <always_on>true</always_on>
@@ -106,7 +106,7 @@
       <topic>__default_topic__</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
         <topicName>imu</topicName>
-        <bodyName>link_chassis</bodyName>
+        <bodyName>base_link</bodyName>
         <updateRateHZ>150.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
