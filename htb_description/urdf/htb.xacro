@@ -8,7 +8,7 @@
 
   <xacro:property name="camera_link_size" value="0.05" /> <!-- Size of square 'camera' box -->
 
-  <link name="link_chassis">
+  <link name="base_link">
     <!-- pose and inertial -->
     <pose>0 0 0.11 0 0 0</pose>
     <inertial>
@@ -36,7 +36,7 @@
   <joint name="v_support_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="-0.21 0 0.01" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
+    <parent link="base_link"/>
     <child link="v_support_link"/>
   </joint>
 
@@ -64,17 +64,50 @@
     </inertial>
   </link>
 
+  <!-- RP-lidar joint-->
+  <joint name="rplidar_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.215 0 0.01" rpy="0 0 ${pi}"/>
+    <parent link="base_link"/>
+    <child link="rplidar_link"/>
+  </joint>
+
+
+  <!-- RP-lidar link-->
+  <link name="rplidar_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://htb_description/meshes/rplidar.dae"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://htb_description/meshes/rplidar.dae"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
   <!-- Camera joint-->
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="-0.21 0 0.8" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
-    <child link="camera_link"/>
+    <origin xyz="-0.215 0 0.8" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="realsense_camera"/>
   </joint>
 
 
   <!-- Camera link-->
-  <link name="camera_link">
+  <link name="realsense_camera">
     <collision>
       <origin xyz="0.03 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
       <geometry>
@@ -103,11 +136,20 @@
     <!-- these values have to be these values otherwise the gazebo camera image
         won't be aligned properly with the frame it is supposedly originating from -->
     <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
-    <parent link="camera_link"/>
-    <child link="camera_link_optical"/>
+    <parent link="realsense_camera"/>
+    <child link="realsense_link_optical"/>
   </joint>
 
-  <link name="camera_link_optical">
+  <link name="realsense_link_optical">
+  </link>
+
+  <joint name="realsense_mountpoint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="realsense_camera"/>
+    <child link="realsense_mount_point"/>
+  </joint>
+
+  <link name="realsense_mount_point">
   </link>
 
   <!-- -->
