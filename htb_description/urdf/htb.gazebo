@@ -105,10 +105,10 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>1147</samples>
+            <samples>800</samples>
             <resolution>1</resolution>
-            <min_angle>-3.14159274101</min_angle>
-            <max_angle>3.14159274101</max_angle>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
           </horizontal>
         </scan>
         <range>
@@ -123,7 +123,7 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/laser_scan</topicName>
+        <topicName>/scan</topicName>
         <frameName>rplidar_link</frameName>
       </plugin>
     </sensor>
