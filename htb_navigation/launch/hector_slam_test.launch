@@ -70,6 +70,18 @@
     <param name="tf_map_scanmatch_transform_frame_name" value="$(arg tf_map_scanmatch_transform_frame_name)" />
   </node>
 
-  <node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 map raw_odom 100"/>
+  <!-- move base package -->
+  <node pkg="move_base" type="move_base" respawn="false" name="htb_move_base" output="screen">
+    <rosparam file="$(find htb_navigation)/config/htb_costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find htb_navigation)/config/htb_costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find htb_navigation)/config/htb_local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find htb_navigation)/config/htb_global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find htb_navigation)/config/htb_base_local_planner_params.yaml" command="load" />
+    <remap from="odom" to="$(arg odom_frame)"/>
+    <remap from="cmd_vel" to="/cmd_vel"/>
+    <remap from="map" to="/map"/>
+ </node>
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 map raw_odom 100"/> -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="laser_2_odom" args="0 0 0.2 0 0 3.14 base_footprint laser 100" /> -->
 </launch>
