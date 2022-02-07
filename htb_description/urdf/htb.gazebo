@@ -4,6 +4,9 @@
   <gazebo reference="base_link">
     <material>Gazebo/Orange</material>
   </gazebo>
+  <gazebo reference="upper_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
   <gazebo reference="link_left_wheel">
     <material>Gazebo/Blue</material>
   </gazebo>
@@ -100,7 +103,7 @@
   <gazebo reference="rplidar_link">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>20</update_rate>
       <ray>
         <scan>
