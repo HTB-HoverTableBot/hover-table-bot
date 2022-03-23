@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
 <robot name="htb" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find htb_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find htb_description)/urdf/htb.gazebo" />
+  <xacro:include filename="$(find htb_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find htb_description)/urdf/macros.xacro" />
   <xacro:include filename="$(find htb_description)/urdf/caster.xacro" />
 
   <xacro:property name="camera_link_size" value="0.05" /> <!-- Size of square 'camera' box -->
 
-  <link name="link_chassis">
+  <link name="base_link">
     <!-- pose and inertial -->
     <pose>0 0 0.11 0 0 0</pose>
     <inertial>
@@ -29,32 +29,58 @@
       </geometry>
       <material name="blue"/>
     </visual>
-
   </link>
 
-  <!-- Vertical support joint-->
-  <joint name="v_support_joint" type="fixed">
+  <!-- upper joint-->
+  <joint name="upper_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="-0.21 0 0.01" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
-    <child link="v_support_link"/>
+    <origin xyz="0 0 0.14" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="upper_link"/>
   </joint>
 
-  <!-- v support link-->
-  <link name="v_support_link">
-    <collision>
-      <origin xyz="0 0 0.5" rpy="0 0 0"/>
+  <link name="upper_link">
+    <!-- pose and inertial -->
+    <pose>0 0 0.11 0 0 0</pose>
+    <inertial>
+      <mass value="2"/>
+      <origin rpy="0 0 0" xyz="0 0 0.11"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertial>
+    <!-- body -->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0.02 0.02 1.0"/>
+        <box size="0.53 0.38 0.02"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <!-- RP-lidar joint-->
+  <joint name="rplidar_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.215 0 0.12" rpy="0 0 ${pi}"/>
+    <parent link="base_link"/>
+    <child link="rplidar_link"/>
+  </joint>
+
+
+  <!-- RP-lidar link-->
+  <link name="rplidar_link">
+    <collision>
+      <origin xyz="0 0 -0.06" rpy="0 0 ${pi}"/>
+      <geometry>
+        <mesh filename="package://htb_description/meshes/rplidar.dae"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 0.5" rpy="0 0 0"/>
+      <origin xyz="0 0 -0.06" rpy="0 0 ${pi}"/>
       <geometry>
-        <box size="0.02 0.02 1.0"/>
+        <mesh filename="package://htb_description/meshes/rplidar.dae"/>
       </geometry>
-      <material name="grey"/>
+      <material name="red"/>
     </visual>
 
     <inertial>
@@ -129,5 +155,10 @@
 
   <xacro:caster_wheel name="left_caster" origin_xyz="0.185 0.11 -0.06" wheel="l"/>
   <xacro:caster_wheel name="right_caster" origin_xyz="0.185 -0.11 -0.06" wheel="r"/>
+
+  <xacro:vertical_support number="1" x="0.105"  y="0.17" />
+  <xacro:vertical_support number="2" x="0.105"  y="-0.17" />
+  <xacro:vertical_support number="3" x="-0.245" y="0.17"  />
+  <xacro:vertical_support number="4" x="-0.245" y="-0.17"  />
 
 </robot>
