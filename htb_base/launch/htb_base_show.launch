@@ -14,6 +14,6 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
   <!-- Launch rviz with config file -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find htb_description)/rviz/htb_base_show.rviz"> </node>
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find htb_description)/rviz/htb_base_show.rviz"> </node> -->
 
 </launch>
