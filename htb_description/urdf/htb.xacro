@@ -60,7 +60,7 @@
   <!-- RP-lidar joint-->
   <joint name="rplidar_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0.215 0 0.12" rpy="0 0 ${pi}"/>
+    <origin xyz="0.215 0 0.12" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="rplidar_link"/>
   </joint>
