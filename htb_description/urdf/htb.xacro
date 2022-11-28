@@ -93,8 +93,8 @@
   <!-- Camera joint-->
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="-0.21 0 0.8" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
+    <origin xyz="0.22 0.08 0.10" rpy="0 0 0"/>
+    <parent link="base_link"/>
     <child link="realsense_camera"/>
   </joint>
 
@@ -148,13 +148,13 @@
   <!-- -->
 
   <xacro:link_wheel name="link_right_wheel" />
-  <xacro:joint_wheel name="right_wheel" child="link_right_wheel" origin_xyz="-0.125 -0.2225 -0.04" />
+  <xacro:joint_wheel name="right_wheel" child="link_right_wheel" origin_xyz="0.125 -0.2225 -0.04" />
 
   <xacro:link_wheel name="link_left_wheel" />
-  <xacro:joint_wheel name="left_wheel" child="link_left_wheel" origin_xyz="-0.125 0.2225 -0.04" />
+  <xacro:joint_wheel name="left_wheel" child="link_left_wheel" origin_xyz="0.125 0.2225 -0.04" />
 
-  <xacro:caster_wheel name="left_caster" origin_xyz="0.185 0.11 -0.06" wheel="l"/>
-  <xacro:caster_wheel name="right_caster" origin_xyz="0.185 -0.11 -0.06" wheel="r"/>
+  <xacro:caster_wheel name="left_caster" origin_xyz="-0.185 0.11 -0.06" wheel="l"/>
+  <xacro:caster_wheel name="right_caster" origin_xyz="-0.185 -0.11 -0.06" wheel="r"/>
 
   <xacro:vertical_support number="1" x="0.105"  y="0.17" />
   <xacro:vertical_support number="2" x="0.105"  y="-0.17" />
