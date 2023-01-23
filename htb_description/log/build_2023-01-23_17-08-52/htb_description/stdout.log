@@ -1,0 +1,52 @@
+-- The C compiler identification is GNU 11.3.0
+-- The CXX compiler identification is GNU 11.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+-- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description
+-- Install configuration: ""
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/launch
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/launch/description.launch.py
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/materials.urdf.xacro
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/controllers
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/controllers/ros2_control.xacro
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/mech
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/mech/wheel.urdf.xacro
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/mech/caster.urdf.xacro
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/htb.urdf.xacro
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/rviz
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/rviz/htv_visualization.rviz
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/caster_hubcap.stl
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/caster_wheel.stl
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/rplidar.dae
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/realsense.dae
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/caster_swivel.stl
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/ament_index/resource_index/package_run_dependencies/htb_description
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/ament_index/resource_index/parent_prefix_path/htb_description
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/ament_prefix_path.sh
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/ament_prefix_path.dsv
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/path.sh
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/path.dsv
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.bash
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.sh
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.zsh
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.dsv
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/package.dsv
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/ament_index/resource_index/packages/htb_description
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/cmake/htb_descriptionConfig.cmake
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/cmake/htb_descriptionConfig-version.cmake
+-- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/package.xml

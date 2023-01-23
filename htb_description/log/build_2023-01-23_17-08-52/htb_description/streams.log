@@ -1,0 +1,58 @@
+[0.010s] Invoking command in '/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description': CMAKE_PREFIX_PATH=/opt/ros/humble HISTTIMEFORMAT=[%F %T] /usr/bin/cmake /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description -DCMAKE_INSTALL_PREFIX=/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description
+[0.065s] -- The C compiler identification is GNU 11.3.0
+[0.119s] -- The CXX compiler identification is GNU 11.3.0
+[0.126s] -- Detecting C compiler ABI info
+[0.191s] -- Detecting C compiler ABI info - done
+[0.198s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.198s] -- Detecting C compile features
+[0.199s] -- Detecting C compile features - done
+[0.203s] -- Detecting CXX compiler ABI info
+[0.281s] -- Detecting CXX compiler ABI info - done
+[0.291s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.291s] -- Detecting CXX compile features
+[0.291s] -- Detecting CXX compile features - done
+[0.294s] -- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.466s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+[0.547s] -- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+[0.661s] -- Configuring done
+[0.664s] -- Generating done
+[0.666s] -- Build files have been written to: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description
+[0.672s] Invoked command in '/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble HISTTIMEFORMAT=[%F %T] /usr/bin/cmake /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description -DCMAKE_INSTALL_PREFIX=/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description
+[0.674s] Invoking command in '/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description': CMAKE_PREFIX_PATH=/opt/ros/humble HISTTIMEFORMAT=[%F %T] /usr/bin/cmake --build /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description -- -j4 -l4
+[0.709s] Invoked command in '/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble HISTTIMEFORMAT=[%F %T] /usr/bin/cmake --build /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description -- -j4 -l4
+[0.736s] Invoking command in '/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description': CMAKE_PREFIX_PATH=/opt/ros/humble HISTTIMEFORMAT=[%F %T] /usr/bin/cmake --install /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description
+[0.744s] -- Install configuration: ""
+[0.744s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/launch
+[0.744s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/launch/description.launch.py
+[0.744s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf
+[0.745s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/materials.urdf.xacro
+[0.745s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/controllers
+[0.745s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/controllers/ros2_control.xacro
+[0.745s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/mech
+[0.745s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/mech/wheel.urdf.xacro
+[0.746s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/mech/caster.urdf.xacro
+[0.746s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/urdf/htb.urdf.xacro
+[0.746s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/rviz
+[0.746s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/rviz/htv_visualization.rviz
+[0.746s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes
+[0.746s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/caster_hubcap.stl
+[0.747s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/caster_wheel.stl
+[0.747s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/rplidar.dae
+[0.750s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/realsense.dae
+[0.752s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/meshes/caster_swivel.stl
+[0.752s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/ament_index/resource_index/package_run_dependencies/htb_description
+[0.753s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/ament_index/resource_index/parent_prefix_path/htb_description
+[0.753s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/ament_prefix_path.sh
+[0.755s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/ament_prefix_path.dsv
+[0.755s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/path.sh
+[0.755s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/environment/path.dsv
+[0.755s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.bash
+[0.756s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.sh
+[0.756s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.zsh
+[0.756s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/local_setup.dsv
+[0.757s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/package.dsv
+[0.758s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/ament_index/resource_index/packages/htb_description
+[0.758s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/cmake/htb_descriptionConfig.cmake
+[0.758s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/cmake/htb_descriptionConfig-version.cmake
+[0.758s] -- Installing: /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/install/htb_description/share/htb_description/package.xml
+[0.770s] Invoked command in '/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble HISTTIMEFORMAT=[%F %T] /usr/bin/cmake --install /mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description
