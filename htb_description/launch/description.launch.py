@@ -19,12 +19,13 @@ from launch.substitutions import LaunchConfiguration, Command, PathJoinSubstitut
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
 
     rviz_config_path = PathJoinSubstitution(
-        [FindPackageShare('htb_description'), 'rviz', 'description.rviz']
+        [FindPackageShare('htb_description'), 'rviz', 'htv_visualization.rviz']
     )
 
     robot_description_content = Command(
