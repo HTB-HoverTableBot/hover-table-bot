@@ -1,9 +1,0 @@
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/uninstall.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/htb_description_uninstall.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/test.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/edit_cache.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/rebuild_cache.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/list_install_components.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/install.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/install/local.dir
-/mnt/DatosLinux/repositorios/hover-table-bot-HTB/htb_description/build/htb_description/CMakeFiles/install/strip.dir

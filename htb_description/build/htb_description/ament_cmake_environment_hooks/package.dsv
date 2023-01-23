@@ -1,4 +1,0 @@
-source;share/htb_description/local_setup.bash
-source;share/htb_description/local_setup.dsv
-source;share/htb_description/local_setup.sh
-source;share/htb_description/local_setup.zsh
