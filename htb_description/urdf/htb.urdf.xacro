@@ -1,12 +1,14 @@
 <?xml version="1.0" ?>
 <robot name="htb" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find htb_description)/urdf/controllers/ros2_control.xacro" />
+  <xacro:include filename="$(find htb_description)/urdf/ros2_control.xacro" />
   <xacro:include filename="$(find htb_description)/urdf/materials.urdf.xacro" />
   <xacro:include filename="$(find htb_description)/urdf/mech/wheel.urdf.xacro" />
   <xacro:include filename="$(find htb_description)/urdf/mech/caster.urdf.xacro" />
 
   <xacro:property name="camera_link_size" value="0.05" /> <!-- Size of square 'camera' box -->
+  <xacro:arg name="use_ros2_control" default="true"/>
+  <xacro:arg name="sim_mode" default="true"/>
 
   <link name="base_link">
     <!-- pose and inertial -->
@@ -147,15 +149,27 @@
 
   <!-- -->
 
+  <xacro:if value="$(arg use_ros2_control)">
+      <xacro:include filename="ros2_control.xacro" />
+  </xacro:if>
+
+  <xacro:unless value="$(arg use_ros2_control)">
+      <xacro:include filename="gazebo_control.xacro" />
+  </xacro:unless>
+
+  <!-- Right Wheel -->
   <xacro:link_wheel name="right_wheel" />
   <xacro:joint_wheel name="right_wheel_joint" child="right_wheel" origin_xyz="0.125 -0.2225 -0.04" />
 
+  <!-- Left Wheel -->
   <xacro:link_wheel name="left_wheel" />
   <xacro:joint_wheel name="left_wheel_joint" child="left_wheel" origin_xyz="0.125 0.2225 -0.04" />
 
+  <!-- Caster wheels -->
   <xacro:caster_wheel name="left_caster" origin_xyz="-0.185 0.11 -0.06" wheel="l"/>
   <xacro:caster_wheel name="right_caster" origin_xyz="-0.185 -0.11 -0.06" wheel="r"/>
 
+  <!-- Vertical supports -->
   <xacro:vertical_support number="1" x="0.105"  y="0.17" />
   <xacro:vertical_support number="2" x="0.105"  y="-0.17" />
   <xacro:vertical_support number="3" x="-0.245" y="0.17"  />
