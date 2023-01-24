@@ -28,18 +28,21 @@ def generate_launch_description():
         [FindPackageShare('htb_description'), 'rviz', 'htv_visualization.rviz']
     )
 
-    robot_description_content = Command(
-        [
-            PathJoinSubstitution([FindExecutable(name="xacro")]),
-            " ",
-            PathJoinSubstitution(
-                [
-                    FindPackageShare("htb_description"),
-                    "urdf",
-                    "htb.urdf.xacro",
-                ]
-            ),
-        ]
+    use_sim_time = LaunchConfiguration('use_sim_time')
+    use_ros2_control = LaunchConfiguration('use_ros2_control')
+
+    # Process the URDF file
+    pkg_path = os.path.join(get_package_share_directory('htb_description'))
+    xacro_file = os.path.join(pkg_path,'urdf','htb.urdf.xacro')
+    robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
+
+    # Create a robot_state_publisher node
+    params = {'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
+    node_robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[params]
     )
 
     return LaunchDescription([
@@ -62,24 +65,16 @@ def generate_launch_description():
             description='Use simulation time'
         ),
 
+        DeclareLaunchArgument(
+            'use_ros2_control',
+            default_value='true',
+            description='Use ros2_control if true'),
+
         Node(
             package='joint_state_publisher',
             executable='joint_state_publisher',
             name='joint_state_publisher',
             condition=IfCondition(LaunchConfiguration("publish_joints"))
-        ),
-
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[
-                {
-                    'use_sim_time': LaunchConfiguration('use_sim_time'),
-                    "robot_description": robot_description_content
-                }
-            ]
         ),
 
         Node(
@@ -90,7 +85,9 @@ def generate_launch_description():
             arguments=['-d', rviz_config_path],
             condition=IfCondition(LaunchConfiguration("rviz")),
             parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]
-        )
+        ),
+
+        node_robot_state_publisher
     ])
 
 #sources: 

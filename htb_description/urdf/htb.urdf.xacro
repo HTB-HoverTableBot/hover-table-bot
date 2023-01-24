@@ -149,13 +149,6 @@
 
   <!-- -->
 
-  <xacro:if value="$(arg use_ros2_control)">
-      <xacro:include filename="ros2_control.xacro" />
-  </xacro:if>
-
-  <xacro:unless value="$(arg use_ros2_control)">
-      <xacro:include filename="gazebo_control.xacro" />
-  </xacro:unless>
 
   <!-- Right Wheel -->
   <xacro:link_wheel name="right_wheel" />
@@ -174,5 +167,13 @@
   <xacro:vertical_support number="2" x="0.105"  y="-0.17" />
   <xacro:vertical_support number="3" x="-0.245" y="0.17"  />
   <xacro:vertical_support number="4" x="-0.245" y="-0.17"  />
+
+  <!-- <xacro:if value="$(arg use_ros2_control)">
+      <xacro:include filename="ros2_control.xacro" />
+  </xacro:if> -->
+
+  <!-- <xacro:unless value="$(arg use_ros2_control)">
+      <xacro:include filename="gazebo_control.xacro" />
+  </xacro:unless> -->
 
 </robot>
