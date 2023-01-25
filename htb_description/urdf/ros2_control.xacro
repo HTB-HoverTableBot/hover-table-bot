@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <!-- Real robot plugin -->
   <xacro:unless value="$(arg sim_mode)">
     <ros2_control name="GazeboSystem" type="system">
       <hardware>
-        <!-- Real robot plugin to modify -->
         <plugin>gazebo_ros2_control/GazeboSystem</plugin>
       </hardware>
       <joint name="left_wheel_joint">
@@ -26,6 +26,7 @@
     </ros2_control>
   </xacro:unless>
 
+  <!-- Simulated robot -->
   <xacro:if value="$(arg sim_mode)">
     <ros2_control name="GazeboSystem" type="system">
       <hardware>

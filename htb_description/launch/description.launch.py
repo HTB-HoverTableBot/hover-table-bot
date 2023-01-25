@@ -46,6 +46,12 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+
+        DeclareLaunchArgument(
+            name='use_sim_time', 
+            default_value='true',
+            description='For simulation'
+        ),
         
         DeclareLaunchArgument(
             name='publish_joints', 
@@ -58,18 +64,7 @@ def generate_launch_description():
             default_value='true',
             description='Run rviz'
         ),
-
-        DeclareLaunchArgument(
-            name='use_sim_time', 
-            default_value='false',
-            description='Use simulation time'
-        ),
-
-        DeclareLaunchArgument(
-            'use_ros2_control',
-            default_value='true',
-            description='Use ros2_control if true'),
-
+        
         Node(
             package='joint_state_publisher',
             executable='joint_state_publisher',

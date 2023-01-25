@@ -23,7 +23,7 @@
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry name="htb_geom">
+        <geometry name="base_link">
           <mesh filename="package://htb_description/meshes/caster_swivel.stl"/>
         </geometry>
         <material name="blue"/>
@@ -41,7 +41,7 @@
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry name="htb_geom">
+        <geometry name="base_link">
           <mesh filename="package://htb_description/meshes/caster_hubcap.stl"/>
         </geometry>
         <material name="blue"/>
@@ -67,7 +67,7 @@
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry name="htb_geom">
+        <geometry name="base_link">
           <mesh filename="package://htb_description/meshes/caster_wheel.stl"/>
         </geometry>
         <material name="WheelBlack">
