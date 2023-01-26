@@ -170,7 +170,7 @@
 
     <!-- Caster wheels -->
     <xacro:caster_wheel name="left_caster" origin_xyz="-0.185 0.11 -0.06" wheel="l" />
-    <xacro:caster_wheel name="right_caster" origin_xyz="-0.185 -0.11 -0.06" wheel="r" />
+    <!-- <xacro:caster_wheel name="right_caster" origin_xyz="-0.185 -0.11 -0.06" wheel="r" /> -->
 
     <!-- Vertical supports -->
     <xacro:vertical_support number="1" x="0.105" y="0.17" />

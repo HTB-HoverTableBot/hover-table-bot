@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- HTB differential drive -->
+<!--
+Copied and modified from ROS1 example -
+https://github.com/ros-controls/ros2_control_demos/blob/master/ros2_control_demo_description/diffbot_description/urdf/diffbot_system.urdf.xacro
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="htb_robot">
+  <xacro:arg name="use_gazebo" default="false" />
+
+  <!-- Import htb description -->
+  <xacro:include filename="$(find htb_description)/urdf/htb_description.urdf.xacro" />
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find htb_description)/gazebo/htb.gazebo.xacro" />
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find htb_description)/gazebo/htb.materials.xacro" />
+
+  <!-- class instantiation -->
+  <xacro:htb_robot />
+  <!-- <xacro:htb_gazebo /> -->
+
+</robot>

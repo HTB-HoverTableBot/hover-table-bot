@@ -24,7 +24,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry name="base_link">
-          <mesh filename="file://$(find htb_description)/meshes/caster_swivel.stl" />
+          <mesh filename="package://htb_description/meshes/caster_swivel.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
@@ -42,7 +42,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry name="base_link">
-          <mesh filename="file://$(find htb_description)/meshes/caster_hubcap.stl" />
+          <mesh filename="package://htb_description/meshes/caster_hubcap.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
@@ -68,16 +68,17 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry name="base_link">
-          <mesh filename="file://$(find htb_description)/meshes/caster_wheel.stl" />
+          <mesh filename="package://htb_description/meshes/caster_wheel.stl"/>
         </geometry>
         <material name="WheelBlack">
           <color rgba="0.117 0.117 0.117 1"/>
         </material>
       </visual>
       <collision>
+        <!-- <origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/> -->
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file://$(find htb_description)/meshes/caster_wheel.stl" />
+          <mesh filename="package://htb_description/meshes/caster_wheel.stl"/>
           <cylinder radius="0.0375" length="0.01"/>
         </geometry>
         <surface>
