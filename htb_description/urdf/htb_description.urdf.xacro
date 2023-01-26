@@ -159,6 +159,9 @@
       <material>Gazebo/Orange</material>
     </gazebo>
 
+    <gazebo reference="upper_link">
+      <material>Gazebo/Orange</material>
+    </gazebo>
 
     <!-- Right Wheel -->
     <xacro:link_wheel name="right_wheel" />

@@ -4,7 +4,7 @@
   <xacro:macro name="htb_gazebo">
 
     <!-- camera -->
-    <gazebo reference="realsense_link_optical">
+    <gazebo>
       <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
 
         <!-- Wheel Information -->

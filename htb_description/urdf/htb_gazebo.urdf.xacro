@@ -18,6 +18,6 @@ https://github.com/ros-controls/ros2_control_demos/blob/master/ros2_control_demo
 
   <!-- class instantiation -->
   <xacro:htb_robot />
-  <!-- <xacro:htb_gazebo /> -->
+  <xacro:htb_gazebo />
 
 </robot>
