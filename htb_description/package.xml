@@ -3,12 +3,9 @@
 <package format="3">
   <name>htb_description</name>
   <version>0.1.0</version>
-  <description>TODO: Package description</description>
-
-  <author email="martin.nievas.ar@gmail.com">Martin Nievas</author>
+  <description>HoverTableBot robot description package</description>
 
   <maintainer email="martin.nievas.ar@gmail.com">Martin Nievas</maintainer>
-
 
   <license>Apache-2.0</license>
 
