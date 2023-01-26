@@ -29,6 +29,7 @@
         <child link="${child}"/>
         <parent link="base_link"/>
         <axis rpy="0 0 0" xyz="0 1 0"/>
+        <dynamics damping="0.2"/>
       </joint>
     </xacro:macro>
 

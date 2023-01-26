@@ -6,9 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /TF1
         - /RobotModel1
-        - /RobotModel1/Description Topic1
       Splitter Ratio: 0.5
     Tree Height: 743
   - Class: rviz_common/Selection
@@ -50,84 +48,6 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Class: rviz_default_plugins/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        base_link:
-          Value: true
-        caster_l_hubcap:
-          Value: true
-        caster_l_swivel:
-          Value: true
-        caster_l_wheel:
-          Value: true
-        caster_r_hubcap:
-          Value: true
-        caster_r_swivel:
-          Value: true
-        caster_r_wheel:
-          Value: true
-        link_left_wheel:
-          Value: true
-        link_right_wheel:
-          Value: true
-        realsense_camera:
-          Value: true
-        realsense_link_optical:
-          Value: true
-        realsense_mount_point:
-          Value: true
-        rplidar_link:
-          Value: true
-        support_1:
-          Value: true
-        support_2:
-          Value: true
-        support_3:
-          Value: true
-        support_4:
-          Value: true
-        upper_link:
-          Value: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        base_link:
-          caster_l_swivel:
-            caster_l_wheel:
-              caster_l_hubcap:
-                {}
-          caster_r_swivel:
-            caster_r_wheel:
-              caster_r_hubcap:
-                {}
-          link_left_wheel:
-            {}
-          link_right_wheel:
-            {}
-          realsense_camera:
-            realsense_link_optical:
-              realsense_mount_point:
-                {}
-          rplidar_link:
-            {}
-          support_1:
-            {}
-          support_2:
-            {}
-          support_3:
-            {}
-          support_4:
-            {}
-          upper_link:
-            {}
-      Update Interval: 0
-      Value: true
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
@@ -155,32 +75,33 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         caster_l_swivel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         caster_l_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         caster_r_hubcap:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         caster_r_swivel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         caster_r_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        link_left_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
           Value: true
-        link_right_wheel:
+        left_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -189,6 +110,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         realsense_link_optical:
           Alpha: 1
           Show Axes: false
@@ -197,10 +119,16 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         rplidar_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         support_1:
           Alpha: 1
           Show Axes: false
@@ -234,6 +162,84 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_link:
+          Value: true
+        caster_l_hubcap:
+          Value: true
+        caster_l_swivel:
+          Value: true
+        caster_l_wheel:
+          Value: true
+        caster_r_hubcap:
+          Value: true
+        caster_r_swivel:
+          Value: true
+        caster_r_wheel:
+          Value: true
+        left_wheel:
+          Value: true
+        realsense_camera:
+          Value: true
+        realsense_link_optical:
+          Value: true
+        realsense_mount_point:
+          Value: true
+        right_wheel:
+          Value: true
+        rplidar_link:
+          Value: true
+        support_1:
+          Value: true
+        support_2:
+          Value: true
+        support_3:
+          Value: true
+        support_4:
+          Value: true
+        upper_link:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        base_link:
+          caster_l_swivel:
+            caster_l_wheel:
+              caster_l_hubcap:
+                {}
+          caster_r_swivel:
+            caster_r_wheel:
+              caster_r_hubcap:
+                {}
+          left_wheel:
+            {}
+          realsense_camera:
+            realsense_link_optical:
+              realsense_mount_point:
+                {}
+          right_wheel:
+            {}
+          rplidar_link:
+            {}
+          support_1:
+            {}
+          support_2:
+            {}
+          support_3:
+            {}
+          support_4:
+            {}
+          upper_link:
+            {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -280,25 +286,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.569177508354187
+      Distance: 1.5016533136367798
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: -0.0018576160073280334
+        Y: 0.1248670294880867
+        Z: -0.07010748982429504
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5303981304168701
+      Pitch: 0.5853983163833618
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.2553977966308594
+      Yaw: 5.553570747375488
     Saved: ~
 Window Geometry:
   Displays:
@@ -316,5 +322,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1918
-  X: 0
+  X: 1920
   Y: 22

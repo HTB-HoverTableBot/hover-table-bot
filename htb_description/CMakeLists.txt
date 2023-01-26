@@ -9,7 +9,7 @@ find_package(ament_cmake REQUIRED)
 find_package(urdf REQUIRED)
 
 install(
-  DIRECTORY launch urdf rviz meshes config
+  DIRECTORY config gazebo launch ros2_control urdf rviz
   DESTINATION share/${PROJECT_NAME}
 )
 
