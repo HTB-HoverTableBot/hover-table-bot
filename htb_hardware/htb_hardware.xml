@@ -1,0 +1,9 @@
+<library path="htb_hardware">
+  <class name="htb_hardware/HtbSystemHardware"
+         type="htb_hardware::HtbSystemHardware"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      The ros2_control for HoverTableBot robot using a system hardware interface-type. It uses velocity command and position state interface.
+    </description>
+  </class>
+</library>
