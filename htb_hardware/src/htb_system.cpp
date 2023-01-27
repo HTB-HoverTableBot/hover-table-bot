@@ -39,10 +39,6 @@ hardware_interface::CallbackReturn HtbSystemHardware::on_init(
   base_y_ = 0.0;
   base_theta_ = 0.0;
 
-  // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  hw_start_sec_ = std::stod(info_.hardware_parameters["example_param_hw_start_duration_sec"]);
-  hw_stop_sec_ = std::stod(info_.hardware_parameters["example_param_hw_stop_duration_sec"]);
-  // END: This part here is for exemplary purposes - Please do not copy to your production code
   hw_positions_.resize(info_.joints.size(), std::numeric_limits<double>::quiet_NaN());
   hw_velocities_.resize(info_.joints.size(), std::numeric_limits<double>::quiet_NaN());
   hw_commands_.resize(info_.joints.size(), std::numeric_limits<double>::quiet_NaN());
@@ -128,16 +124,7 @@ std::vector<hardware_interface::CommandInterface> HtbSystemHardware::export_comm
 hardware_interface::CallbackReturn HtbSystemHardware::on_activate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
-  // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("HtbSystemHardware"), "Activating ...please wait...");
-
-  for (auto i = 0; i < hw_start_sec_; i++)
-  {
-    rclcpp::sleep_for(std::chrono::seconds(1));
-    RCLCPP_INFO(
-      rclcpp::get_logger("HtbSystemHardware"), "%.1f seconds left...", hw_start_sec_ - i);
-  }
-  // END: This part here is for exemplary purposes - Please do not copy to your production code
+  RCLCPP_INFO(rclcpp::get_logger("HtbSystemHardware"), "Activating HtbSystemHardware...please wait...");
 
   // set some default values
   for (auto i = 0u; i < hw_positions_.size(); i++)
@@ -158,18 +145,8 @@ hardware_interface::CallbackReturn HtbSystemHardware::on_activate(
 hardware_interface::CallbackReturn HtbSystemHardware::on_deactivate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
-  // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(rclcpp::get_logger("HtbSystemHardware"), "Deactivating ...please wait...");
+  RCLCPP_INFO(rclcpp::get_logger("HtbSystemHardware"), "Deactivating HtbSystemHardware...please wait...");
 
-  for (auto i = 0; i < hw_stop_sec_; i++)
-  {
-    rclcpp::sleep_for(std::chrono::seconds(1));
-    RCLCPP_INFO(
-      rclcpp::get_logger("HtbSystemHardware"), "%.1f seconds left...", hw_stop_sec_ - i);
-  }
-  // END: This part here is for exemplary purposes - Please do not copy to your production code
-
-  RCLCPP_INFO(rclcpp::get_logger("HtbSystemHardware"), "Successfully deactivated!");
 
   return hardware_interface::CallbackReturn::SUCCESS;
 }
@@ -179,21 +156,6 @@ hardware_interface::return_type HtbSystemHardware::read(
 {
   double radius = 0.02;  // radius of the wheels
   double dist_w = 0.1;   // distance between the wheels
-  for (uint i = 0; i < hw_commands_.size(); i++)
-  {
-    // Simulate HoverTableBot wheels's movement as a first-order system
-    // Update the joint status: this is a revolute joint without any limit.
-    // Simply integrates
-    hw_positions_[i] = hw_positions_[1] + period.seconds() * hw_commands_[i];
-    hw_velocities_[i] = hw_commands_[i];
-
-    // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-    RCLCPP_INFO(
-      rclcpp::get_logger("HtbSystemHardware"),
-      "Got position state %.5f and velocity state %.5f for '%s'!", hw_positions_[i],
-      hw_velocities_[i], info_.joints[i].name.c_str());
-    // END: This part here is for exemplary purposes - Please do not copy to your production code
-  }
 
   // Update the free-flyer, i.e. the base notation using the classical
   // wheel differentiable kinematics
@@ -203,12 +165,6 @@ hardware_interface::return_type HtbSystemHardware::read(
   base_x_ += base_dx * period.seconds();
   base_y_ += base_dy * period.seconds();
   base_theta_ += base_dtheta * period.seconds();
-
-  // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
-  RCLCPP_INFO(
-    rclcpp::get_logger("HtbSystemHardware"), "Joints successfully read! (%.5f,%.5f,%.5f)",
-    base_x_, base_y_, base_theta_);
-  // END: This part here is for exemplary purposes - Please do not copy to your production code
 
   return hardware_interface::return_type::OK;
 }
