@@ -6,7 +6,7 @@
     <!-- Simulated robot - ros2 plugin-->
     <ros2_control name="GazeboSystem" type="system">
       <hardware>
-        <plugin>mock_components/GenericSystem</plugin>
+        <plugin>htb_hardware/HtbSystemHardware</plugin>
       </hardware>
       <joint name="left_wheel_joint">
         <command_interface name="velocity">
