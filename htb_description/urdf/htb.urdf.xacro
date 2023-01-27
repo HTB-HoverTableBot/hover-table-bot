@@ -7,7 +7,7 @@
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find htb_description)/gazebo/htb.materials.xacro" />
 
-  <!-- Import diffbot ros2_control description -->
+  <!-- Import htb ros2_control description -->
   <xacro:include filename="$(find htb_description)/ros2_control/htb.ros2_control.xacro" />
 
   <!-- class instantiation -->
