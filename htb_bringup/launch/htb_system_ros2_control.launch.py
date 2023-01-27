@@ -45,7 +45,7 @@ def generate_launch_description():
                 [FindPackageShare("htb_description"), "urdf", "htb.urdf.xacro"]
             ),
             " ",
-            "fixed_caster:=false",
+            "fixed_caster:=true",
         ]
     )
     robot_description = {"robot_description": robot_description_content}
@@ -105,35 +105,12 @@ def generate_launch_description():
     )
 
 
-    gazebo_params_file = os.path.join(
-        get_package_share_directory('htb_bringup'),
-        'config',
-        'gazebo_params.yaml'
-    )
-
-    # Include the Gazebo launch file, provided by the gazebo_ros package
-    gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'),
-                    'launch',
-                    'gazebo.launch.py')]),
-                    launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file}.items()
-    )
-
-    # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
-                        arguments=['-topic', 'robot_description',
-                                   '-entity', 'htb'],
-                        output='screen')
-
     return LaunchDescription(
         [
             control_node,
             robot_state_pub_node,
             arg_show_rviz,
             rviz_node,
-            gazebo,
-            spawn_entity,
             joint_state_broadcaster_spawner,
             delay_robot_controller_spawner_after_joint_state_broadcaster_spawner ,
         ]
