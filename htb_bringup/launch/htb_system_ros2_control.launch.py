@@ -74,7 +74,7 @@ def generate_launch_description():
     )
 
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare("htb_description"), "config", "htb.rviz"]
+        [FindPackageShare("htb_description"), "rviz", "htb_visualization.rviz"]
     )
     rviz_node = Node(
         package="rviz2",
