@@ -51,6 +51,22 @@
       <material name="blue"/>
     </visual>
   </link>
+  <link name="base_footprint">
+    <!-- pose and inertial -->
+    <pose>0 0 0 0 0 0</pose>
+    <inertia>
+      <mass value="0.01"/>
+      <origin rpy="0 0 0" xyz="0 0 0.11"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertia>
+  </link>
+  <!-- base_footrpint joint-->
+  <joint name="base_footprint_joint" type="fixed">
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.11"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+  </joint>
   <!-- upper joint-->
   <joint name="upper_joint" type="fixed">
     <axis xyz="0 1 0"/>
@@ -88,13 +104,13 @@
     <collision>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.06"/>
       <geometry>
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/rplidar.dae"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/rplidar.dae"/>
       </geometry>
     </collision>
     <visual>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.06"/>
       <geometry>
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/rplidar.dae"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/rplidar.dae"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -116,13 +132,13 @@
     <collision>
       <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0.03 0 0"/>
       <geometry>
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/realsense.dae"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/realsense.dae"/>
       </geometry>
     </collision>
     <visual>
       <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0.03 0 0"/>
       <geometry>
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/realsense.dae"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/realsense.dae"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -240,7 +256,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="base_link">
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_swivel.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_swivel.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -258,7 +274,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="base_link">
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_hubcap.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_hubcap.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -284,7 +300,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="base_link">
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
       </geometry>
       <material name="WheelBlack">
         <color rgba="0.117 0.117 0.117 1"/>
@@ -293,7 +309,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
         <cylinder length="0.01" radius="0.0375"/>
       </geometry>
       <surface>
@@ -335,7 +351,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="base_link">
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_swivel.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_swivel.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -353,7 +369,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="base_link">
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_hubcap.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_hubcap.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -379,7 +395,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="base_link">
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
       </geometry>
       <material name="WheelBlack">
         <color rgba="0.117 0.117 0.117 1"/>
@@ -388,7 +404,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/martin/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
+        <mesh filename="file:///home/aresuser/ros2_ws/install/htb_description/share/htb_description/meshes/caster_wheel.stl"/>
         <cylinder length="0.01" radius="0.0375"/>
       </geometry>
       <surface>
@@ -528,11 +544,11 @@
       <param name="left_wheel_radius">0.08</param>
       <param name="right_wheel_radius">0.08</param>
       <param name="loop_rate">30</param>
-      <param name="device">htb_driver</param>
+      <param name="device">/dev/htb_driver</param>
       <param name="baud_rate">57600</param>
       <param name="timeout_ms">1000</param>
       <param name="enc_counts_per_rev">90</param>
-      <param name="inverted">1</param>
+      <param name="inverted">0</param>
       <param name="pid_p">20</param>
       <param name="pid_d">12</param>
       <param name="pid_i">0</param>

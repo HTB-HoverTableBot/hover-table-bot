@@ -33,6 +33,25 @@
       </visual>
     </link>
 
+    <link name="base_footprint">
+      <!-- pose and inertial -->
+      <pose>0 0 0 0 0 0</pose>
+      <inertia>
+        <mass value="0.01" />
+        <origin rpy="0 0 0" xyz="0 0 0.11" />
+        <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0"
+          izz="0.106208333333" />
+      </inertia>
+    </link>
+
+    <!-- base_footrpint joint-->
+    <joint name="base_footprint_joint" type="fixed">
+      <axis xyz="0 1 0" />
+      <origin xyz="0 0 -0.11" rpy="0 0 0" />
+      <parent link="base_link" />
+      <child link="base_footprint" />
+    </joint>
+
     <!-- upper joint-->
     <joint name="upper_joint" type="fixed">
       <axis xyz="0 1 0" />
