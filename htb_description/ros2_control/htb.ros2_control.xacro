@@ -15,7 +15,7 @@
         <param name="baud_rate">57600</param>
         <param name="timeout_ms">1000</param>
         <param name="enc_counts_per_rev">90</param>
-        <param name="inverted">1</param>
+        <param name="inverted">0</param>
         <param name="pid_p">20</param>
         <param name="pid_d">12</param>
         <param name="pid_i">0</param>
