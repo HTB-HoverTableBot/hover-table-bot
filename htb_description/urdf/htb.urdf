@@ -528,7 +528,7 @@
       <param name="left_wheel_radius">0.08</param>
       <param name="right_wheel_radius">0.08</param>
       <param name="loop_rate">30</param>
-      <param name="device">/dev/ttyUSB0</param>
+      <param name="device">htb_driver</param>
       <param name="baud_rate">57600</param>
       <param name="timeout_ms">1000</param>
       <param name="enc_counts_per_rev">90</param>
