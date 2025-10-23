@@ -25,6 +25,15 @@
 
 namespace htb_hardware
 {
+
+
+HtbSystemHardware::HtbSystemHardware()
+: _clock(RCL_SYSTEM_TIME)
+{
+  ;//
+}
+
+
 hardware_interface::CallbackReturn HtbSystemHardware::on_init(
   const hardware_interface::HardwareInfo & info)
 {
@@ -39,15 +48,13 @@ hardware_interface::CallbackReturn HtbSystemHardware::on_init(
   base_y_ = 0.0;
   base_theta_ = 0.0;
 
-  _clock(RCL_SYSTEM_TIME);
-
   serial_port_name = DEFAULT_PORT;
   rclcpp::Node demo_node("Nodo");
   std::string my_param =demo_node.get_parameter("serial_port").get_parameter_value().get<std::string>();
   
   if ((port_fd = open(serial_port_name.c_str(), O_RDWR | O_NOCTTY | O_NDELAY)) < 0) {
     RCLCPP_FATAL(
-      rclcpp::get_logger("HtbSystemHardware"), "Cannot open serial port to hoverboard");
+      rclcpp::get_logger("HtbSystemHardware"), "Cannot open serial port to hoverboard %s", serial_port_name.c_str());
     exit(-1);
   }
 
@@ -302,7 +309,7 @@ void HtbSystemHardware::on_encoder_update(int16_t right, int16_t left)
   // IF there has been a pause in receiving data AND the new number of ticks is close to zero, indicates a board restard
   //(the board seems to often report 1-3 ticks on startup instead of zero)
   // reset the last read ticks to the startup values
-  if ((rclcpp::Clock::now() - last_read).toSec() > 0.2 && abs(posL) < 5 && abs(posR) < 5)
+  if ((_clock.now() - last_read).seconds() > 0.2 && abs(posL) < 5 && abs(posR) < 5)
   {
     lastPosL = posL;
     lastPosR = posR;
