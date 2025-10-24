@@ -13,7 +13,7 @@ def generate_launch_description():
     config_filepath = launch.substitutions.LaunchConfiguration('config_filepath')
 
     return launch.LaunchDescription([
-        launch.actions.DeclareLaunchArgument('joy_vel', default_value='cmd_vel'),
+        launch.actions.DeclareLaunchArgument('joy_vel', default_value='/htb_base_controller/cmd_vel_unstamped'),
         launch.actions.DeclareLaunchArgument('joy_config', default_value='joy_config'),
         launch.actions.DeclareLaunchArgument('joy_dev', default_value='0'),
         launch.actions.DeclareLaunchArgument('publish_stamped_twist', default_value='false'),
