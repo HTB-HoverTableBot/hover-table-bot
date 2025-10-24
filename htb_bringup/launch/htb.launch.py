@@ -15,13 +15,17 @@
 from launch import LaunchDescription
 from launch.actions import RegisterEventHandler
 from launch.event_handlers import OnProcessExit
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
+from launch.conditions import IfCondition
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+
+    rviz = LaunchConfiguration('rviz', default='false')
+
     # Get URDF via xacro
     robot_description_content = Command(
         [
@@ -65,6 +69,7 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
+        condition=IfCondition(rviz),
         arguments=["-d", rviz_config_file],
     )
 
@@ -79,6 +84,18 @@ def generate_launch_description():
         executable="spawner",
         arguments=["htb_base_controller", "-c", "/controller_manager"],
     )
+
+    rplidar_node = Node(
+        package='rplidar_ros',
+        executable='rplidar_node',
+        name='rplidar_node',
+        parameters=[{'channel_type': 'serial',
+                     'serial_port': '/dev/rplidar',
+                     'serial_baudrate': 115200,
+                     'frame_id': 'rplidar_link',
+                     'inverted': False,
+                     'angle_compensate': True}],
+        output='screen')
 
     # Delay rviz start after `joint_state_broadcaster`
     delay_rviz_after_joint_state_broadcaster_spawner = RegisterEventHandler(
@@ -102,6 +119,7 @@ def generate_launch_description():
         joint_state_broadcaster_spawner,
         delay_rviz_after_joint_state_broadcaster_spawner,
         delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
+        rplidar_node,
     ]
 
     return LaunchDescription(nodes)
