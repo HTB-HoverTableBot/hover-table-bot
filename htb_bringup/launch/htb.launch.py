@@ -13,8 +13,9 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import RegisterEventHandler
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler
 from launch.event_handlers import OnProcessExit
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 from launch.conditions import IfCondition
 
@@ -25,6 +26,26 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
 
     rviz = LaunchConfiguration('rviz', default='false')
+    joy_config = LaunchConfiguration('joy_config', default='redragon')
+    joy_vel = LaunchConfiguration('joy_vel', default='/htb_base_controller/cmd_vel_unstamped')
+
+    declare_rviz_cmd = DeclareLaunchArgument(
+        'rviz',
+        default_value='false',
+        description='Start RViz',
+    )
+
+    declare_joy_config_cmd = DeclareLaunchArgument(
+        'joy_config',
+        default_value='redragon',
+        description='Config name for teleop_twist_joy',
+    )
+
+    declare_joy_vel_cmd = DeclareLaunchArgument(
+        'joy_vel',
+        default_value='/htb_base_controller/cmd_vel_unstamped',
+        description='Topic name for cmd_vel',
+    )
 
     # Get URDF via xacro
     robot_description_content = Command(
@@ -73,6 +94,20 @@ def generate_launch_description():
         arguments=["-d", rviz_config_file],
     )
 
+    teleop_twist_joy_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([
+                FindPackageShare("teleop_twist_joy"),
+                "launch",
+                "teleop-launch.py"
+            ])
+        ),
+        launch_arguments={
+            "joy_config": joy_config,
+            "joy_vel": joy_vel,
+        }.items(),
+    )
+
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -114,12 +149,16 @@ def generate_launch_description():
     )
 
     nodes = [
+        declare_rviz_cmd,
+        declare_joy_config_cmd,
+        declare_joy_vel_cmd,
         control_node,
         robot_state_pub_node,
         joint_state_broadcaster_spawner,
         delay_rviz_after_joint_state_broadcaster_spawner,
         delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
-        rplidar_node,
+        teleop_twist_joy_launch,
+        #rplidar_node,
     ]
 
     return LaunchDescription(nodes)
