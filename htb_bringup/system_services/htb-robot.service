@@ -1,0 +1,21 @@
+[Unit]
+Description=HTB Robot ROS2
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=<update>
+WorkingDirectory=/home/<update>/ros2_ws
+
+Environment=HOME=/home/<update>
+
+ExecStart=/bin/bash -c 'source /opt/ros/humble/setup.bash && source /home/<update>/ros2_ws/install/setup.bash && ros2 launch htb_bringup htb.launch.py'
+
+Restart=on-failure
+RestartSec=5
+
+
+[Install]
+WantedBy=multi-user.target
+
